@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class SimpleCardCollection {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<String> cards = new ArrayList<>(); // Using Collection Interface
+
+        System.out.print("How many cards do you want to add? ");
+        int n = sc.nextInt();
+        sc.nextLine(); // Clear buffer
+
+        // Adding cards to the collection
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter card (Symbol Value, e.g., Hearts King): ");
+            String card = sc.nextLine();
+            cards.add(card);
+        }
+
+        // Searching for cards based on a given symbol
+        System.out.print("\nEnter the symbol to search for: ");
+        String searchSymbol = sc.nextLine();
+
+        System.out.println("\nCards with symbol '" + searchSymbol + "':");
+        boolean found = false;
+        for (String card : cards) {
+            if (card.startsWith(searchSymbol)) {
+                System.out.println(card);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No cards found with this symbol.");
+        }
+
+        sc.close();
+    }
+}
